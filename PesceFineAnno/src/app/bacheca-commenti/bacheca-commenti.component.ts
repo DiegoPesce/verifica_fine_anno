@@ -15,4 +15,9 @@ export class BachecaCommentiComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddComment(title : HTMLInputElement, text : HTMLInputElement){
+    if(localStorage.getItem('logged') == 'true' && localStorage.getItem('username') != null){
+      this.risposte.push( new Risposte(title.value, Date.now().toString(), text.value, localStorage.getItem('username'), []) );
+    }
+  }
 }

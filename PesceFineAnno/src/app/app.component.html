@@ -1,5 +1,5 @@
-<input type="text" #newPost>
-<input type="button" (click)="onAddPost(newPost)" value="Inserisci un post">
+<input type="text" #newTitle><input type="text" #newText>
+<input type="button" (click)="onAddPost(newTitle, newText)" value="Inserisci un post">
 <app-post [posts]="posts"></app-post>
 <br><br>
 username:

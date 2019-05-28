@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from './post/post.model'
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,12 +21,14 @@ export class AppComponent {
     });
   }
 
-onAddPost(post : HTMLInputElement){
-  console.log(post.value)
-  this.posts.push(new Post(post.value, null,null,null,null));
+onAddPost(title : HTMLInputElement, text : HTMLInputElement){
+  if(localStorage.getItem('logged') == 'true' && localStorage.getItem('username') != null){
+    this.posts.push( new Post(title.value, Date.now().toString(), text.value, localStorage.getItem('username'), []) );
+  }
 }
  onLogIn(u : HTMLInputElement, p: HTMLInputElement){
+   //request to db to verify user//
+   localStorage.setItem('logged', 'true');
    localStorage.setItem('username', u.value);
-   localStorage.setItem('password', p.value);
  }
 }

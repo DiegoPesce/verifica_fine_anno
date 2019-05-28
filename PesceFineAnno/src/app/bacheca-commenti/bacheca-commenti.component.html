@@ -1,3 +1,6 @@
 <ul>
-  <li *ngFor="let risposta of risposte"><b>{{ risposta.userName }}</b> dice : {{ risposta.testo }}</li>
+  <li *ngFor="let risposta of risposte"><b>{{ risposta.userName }}</b> dice : {{ risposta.testo }}<br>
+  <input type="text" #newTitle><input type="text" #newText>
+  <input type="button" (click)="onAddComment(newTitle, newText)" value="Inserisci un commento">
+  </li>
 </ul>
