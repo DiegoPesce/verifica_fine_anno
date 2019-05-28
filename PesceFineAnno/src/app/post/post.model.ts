@@ -9,10 +9,13 @@ export class Post {
     this.userName = userName;
     this.risposte = risposte;
   }
-
     titolo: string;
     dataInsrimento: string;
     testo: string;
     userName: string;
     risposte: Risposte[];
+
+  addRisposta(titolo: string, dataInsrimento: string, testo: string, userName: string, risposte: Risposte[]){
+    this.risposte.push( new Risposte(titolo, Date.now().toString(), testo, localStorage.getItem('username'), []) );
+  }
 }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from './post/post.model'
-import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-root',

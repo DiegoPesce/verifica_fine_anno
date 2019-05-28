@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let post of posts">{{ post.dataInsrimento }} → {{ post.userName }} : {{ post.titolo }}
+  <li *ngFor="let post of posts">{{ post.dataInsrimento }} → {{ post.userName }} : {{ post.titolo }}<br>
+    <input type="text" #newTitle><input type="text" #newText>
+    <input type="button" (click)="onAddComment(newTitle, newText, post)" value="Inserisci un commento">
     <app-bacheca-commenti [risposte]="post.risposte"></app-bacheca-commenti>
-  </li> 
+  </li>
 </ul>

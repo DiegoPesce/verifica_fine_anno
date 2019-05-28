@@ -17,4 +17,9 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
+onAddComment(title : HTMLInputElement, text : HTMLInputElement, post : Post){
+    if(localStorage.getItem('logged') == 'true' && localStorage.getItem('username') != null){
+      post.addRisposta( title.value, Date.now().toString(), text.value, localStorage.getItem('username'), [] );
+    }
+  }
 }
